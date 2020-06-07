@@ -2,12 +2,11 @@
 quitme = False
 
 
-
 print("What problem do you want to solve?")
 print("1. Floatation")
 print("2. Springs")
-escolha = input()
-if(escolha=="1"):
+choice = input()
+if(choice=="1"):
     angle = 30
     velocity = 30
     viscosity = 1
@@ -26,7 +25,6 @@ if(escolha=="1"):
         
         fb = densityFlu * gravity * volumObj
         fg = mass * gravity
-        print('%f , %f' % (fb, fg))
 
         if(fb > fg):
             volumInW = fg / (densityFlu * gravity)
@@ -37,35 +35,27 @@ if(escolha=="1"):
         else:
             print('The object would sink')
         
-
-
-
         first, changing, number = input().split()
         if (changing == "gravity"):
             gravity = float(number)
-            print('%.2f' % (gravity))
         
         elif(changing == "mass"):
             mass = float(number)
-            print('%.2f' % (mass))
             volumObj = mass / densityObj
-            print('%.2f' % (volumObj))
             
 
         elif(changing == "volume"):
             volumObj = float(number)
-            print('%.2f' % (volumObj))
             mass = volumObj * densityObj
-            print('%.2f' % (mass))
 
         elif(changing == "densityF"):
             densityFlu = float(number)
-            print('%.2f' % (densityFlu))
+
         else:
             print("Insert a valid change Ex: set gravity/densityF/mass/volume 10")
 
 
-elif(escolha=="2"):
+elif(choice=="2"):
     mass = 1.5
     gravity = 9.81
     springR = 0.5
@@ -75,27 +65,24 @@ elif(escolha=="2"):
         print("Base spring length is %.2f, constant = %.2f" % (springR, constant))
         
         fg = mass * -gravity
-        print('%f'%(fg))
         L = (fg / -constant) + springR
+        
         print('Spring would stretch to %f meters' % (L))
 
 
         first, changing, number = input().split()
         if (changing == "gravity"):
             gravity = float(number)
-            print('%.2f' % (gravity))
             
         elif(changing == "mass"):
             mass = float(number)
-            print('%.2f' % (mass))
 
         elif(changing == "springR"):
             springR = float(number)
-            print('%.2f' % (springR))
 
         elif(changing == "constant"):
             constant = float(number)
-            print('%.2f' % (constant))
+
         else:
             print("Insert a valid change Ex: set gravity/mass/springR/constant 10")
 
